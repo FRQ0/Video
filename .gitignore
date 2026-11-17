@@ -3,3 +3,4 @@ node_modules/
 estudio/saida/
 __pycache__/
 *.pyc
+estudio/vozes/
