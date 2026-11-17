@@ -106,6 +106,17 @@ def sintetizar(cfg):
             tt = np.arange(m) / SR
             guincho = np.sin(2 * np.pi * (900 + 1400 * tt) * tt) * env(m, 0.005, 0.7)
             colocar(trilha, guincho * 0.35 + tom(38, 2.2, 1.0, (1, 1.5)) + ruido(m, rnd, 2) * env(m, 0.001, 0.25) * 0.6, ini, 0.7)
+        elif nome == "lamina":  # faca saindo da gaveta: "shhhing" metálico
+            m = int(0.9 * SR)
+            tt = np.arange(m) / SR
+            brilho = sum(np.sin(2 * np.pi * f * tt) for f in (3150, 4720, 6300)) / 3
+            colocar(trilha, (brilho * 0.6 + ruido(m, rnd, 2) * 0.4) * env(m, 0.15, 0.35), ini, 0.25)
+        elif nome == "rangido":  # porta rangendo devagar
+            m = int(1.8 * SR)
+            tt = np.arange(m) / SR
+            f = 180 + 120 * np.sin(2 * np.pi * 0.7 * tt) + 40 * np.sin(2 * np.pi * 13 * tt)
+            serra = 2 * ((np.cumsum(f) / SR) % 1) - 1
+            colocar(trilha, serra * np.hanning(m) * (0.6 + 0.4 * np.sin(2 * np.pi * 9 * tt)), ini, 0.12)
         elif nome == "silencio":
             a, b = int(ini * SR), int(ev[2] * SR)
             rampa = int(0.05 * SR)

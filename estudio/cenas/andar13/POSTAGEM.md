@@ -15,3 +15,15 @@
 - Na primeira hora depois de postar, fique respondendo os comentários.
 - Fixe um comentário seu: "Comenta A ou B 👇 a mais votada vira a parte 2".
 - Quando decidir, mande aqui: **"Parte 2: venceu A"** (ou B) e, se quiser, cole os comentários mais engraçados ou criativos. Eles podem virar detalhes na história.
+
+## Parte 2 · "A porta" (venceu A)
+
+**Legenda do post:**
+> Vocês mandaram ele abrir a porta… 🔪🚪
+> Dentro do elevador tinha um calendário. Todos os dias do último ano riscados. E hoje circulado: "DE NOVO".
+> Parte 2 de 5. **VOCÊ decide**:
+> 🅰️ Entra no elevador
+> 🅱️ Volta e bate na própria porta
+> A mais comentada vira a Parte 3. 👇
+
+**Hashtags:** #suspense #terror #minissérie #historiadeterror #vocêdecide #andar13 #parte2

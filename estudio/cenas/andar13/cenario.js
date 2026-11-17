@@ -106,12 +106,13 @@ export function montarCorredor(cena) {
   g.add(malha(new THREE.BoxGeometry(0.1, 3.2, 26), lambert('#57533f'), 2, 1.6, -6));
   g.add(malha(new THREE.BoxGeometry(4, 3.2, 0.1), lambert('#3b3a33'), 0, 1.6, -15.5));    // fundo
   // porta 1301 na parede direita
-  g.add(malha(new THREE.BoxGeometry(0.12, 2.3, 1.1), lambert('#5b3a22'), 1.93, 1.15, -6));
+  const porta1301 = malha(new THREE.BoxGeometry(0.12, 2.3, 1.1), lambert('#5b3a22'), 1.93, 1.15, -6);
+  g.add(porta1301);
   const plaquinha = new THREE.Mesh(new THREE.PlaneGeometry(0.45, 0.2),
     new THREE.MeshBasicMaterial({ map: texturaTexto('1301', { fundo: '#c9a24a', cor: '#1a1a1a', w: 256, h: 112, fonte: '900 80px Montserrat' }) }));
   plaquinha.rotation.y = -Math.PI / 2;
-  plaquinha.position.set(1.86, 1.95, -6);
-  g.add(plaquinha);
+  plaquinha.position.set(-0.07, 0.8, 0); // presa na porta
+  porta1301.add(plaquinha);
   // elevador no fim do corredor
   const interior = new THREE.Mesh(new THREE.PlaneGeometry(1.6, 2.4), new THREE.MeshBasicMaterial({ color: '#fff6dd' }));
   interior.position.set(0, 1.2, -15.42);
@@ -126,7 +127,7 @@ export function montarCorredor(cena) {
   lampada.position.set(0, 3, -5);
   g.add(lampada);
   cena.add(g);
-  return { grupo: g, portaE, portaD, luzElevador, lampada };
+  return { grupo: g, portaE, portaD, luzElevador, lampada, porta: porta1301 };
 }
 
 // ---------- Apartamento 1301 por dentro ----------
@@ -175,4 +176,60 @@ export function montarApto(cena) {
   g.add(abajur);
   cena.add(g);
   return { grupo: g, porta, bilhete, leo: personagem, sombra, abajur };
+}
+
+// ---------- Peças extras (Parte 2 em diante) ----------
+
+// Põe uma malha numa dobradiça para ela poder abrir/fechar girando. Devolve o "pivô" (gire pivo.rotation.y).
+export function dobradica(malha, deslocamento) {
+  const pivo = new THREE.Group();
+  pivo.position.copy(malha.position).add(deslocamento);
+  malha.parent.add(pivo);
+  malha.position.copy(deslocamento).multiplyScalar(-1);
+  pivo.add(malha);
+  return pivo;
+}
+
+export function faca() {
+  const g = new THREE.Group();
+  const lamina = new THREE.Mesh(new THREE.BoxGeometry(0.03, 0.42, 0.09),
+    new THREE.MeshLambertMaterial({ color: '#dfe5ec', emissive: '#3a4250' }));
+  lamina.position.y = 0.21;
+  const cabo = new THREE.Mesh(new THREE.BoxGeometry(0.05, 0.18, 0.06), lambert('#1b1b1b'));
+  cabo.position.y = -0.09;
+  g.add(lamina, cabo);
+  return g;
+}
+
+// Balcão de cozinha na parede esquerda do apartamento, com uma faca em cima.
+export function montarCozinha(apto) {
+  const balcao = malha(new THREE.BoxGeometry(1.1, 1, 3), lambert('#5a4636'), -3.4, 0.5, -0.5);
+  const tampo = malha(new THREE.BoxGeometry(1.2, 0.06, 3.1), lambert('#9aa0a6'), -3.4, 1.03, -0.5);
+  const gaveta = malha(new THREE.BoxGeometry(0.04, 0.22, 0.8), lambert('#6e5744'), -2.84, 0.8, -0.5);
+  apto.grupo.add(balcao, tampo, gaveta);
+  const lamina = faca();
+  lamina.rotation.z = Math.PI / 2;
+  lamina.position.set(-3.1, 1.09, -1.0);
+  apto.grupo.add(lamina);
+  const luz = new THREE.PointLight('#cfe0ff', 3, 6);
+  luz.position.set(-2.5, 2.6, -0.5);
+  apto.grupo.add(luz);
+  return { balcao, gaveta, faca: lamina, luz };
+}
+
+// Calendário colado no fundo do elevador do corredor (aparece quando as portas abrem).
+export function calendarioNoElevador(corredor) {
+  const tex = texturaCanvas(256, 320, (x, w, h) => {
+    x.fillStyle = '#f2efe6'; x.fillRect(0, 0, w, h);
+    x.fillStyle = '#7a0d0d'; x.fillRect(0, 0, w, 48);
+    x.strokeStyle = '#d11'; x.lineWidth = 4;
+    for (let i = 0; i < 35; i++) {
+      const cx = 18 + (i % 7) * 33, cy = 70 + Math.floor(i / 7) * 48;
+      x.beginPath(); x.moveTo(cx, cy); x.lineTo(cx + 22, cy + 30); x.moveTo(cx + 22, cy); x.lineTo(cx, cy + 30); x.stroke();
+    }
+  });
+  const cal = new THREE.Mesh(new THREE.PlaneGeometry(0.6, 0.75), new THREE.MeshBasicMaterial({ map: tex }));
+  cal.position.set(0, 1.45, -15.4);
+  corredor.grupo.add(cal);
+  return cal;
 }

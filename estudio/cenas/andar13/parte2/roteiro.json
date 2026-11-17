@@ -1,0 +1,40 @@
+{
+ "voz": "clonada",
+ "referencia": "vozes/minha/referencia.wav",
+ "secoes": [0, 6, 10, 16, 21, 27, 32, 38, 46, 51, 58],
+ "fim": 68,
+ "falas": [
+  { "secao": 0, "ofs": 0.5, "texto": "Na parte um, o Léo recebeu uma mensagem do próprio número: eu já estou aí dentro." },
+  { "secao": 1, "ofs": 0.3, "texto": "Vocês escolheram: abrir a porta." },
+  { "secao": 2, "ofs": 0.3, "texto": "Mas antes, ele foi até a cozinha... e pegou a maior faca da gaveta." },
+  { "secao": 3, "ofs": 0.3, "texto": "Ele girou a maçaneta. Bem devagar." },
+  { "secao": 4, "ofs": 0.3, "texto": "O corredor estava vazio. A lâmpada piscava." },
+  { "secao": 5, "ofs": 0.6, "texto": "Até que o elevador apitou. Três e trinta e três." },
+  { "secao": 6, "ofs": 0.8, "texto": "As portas se abriram... e dessa vez, tinha uma coisa lá dentro." },
+  { "secao": 7, "ofs": 0.3, "texto": "Um calendário. Com todos os dias do último ano riscados de vermelho.", "ate": 4.0 },
+  { "secao": 7, "ofs": 4.2, "texto": "E o dia de hoje estava circulado. Com duas palavras escritas do lado: de novo." },
+  { "secao": 8, "ofs": 0.2, "texto": "Foi quando a porta do apartamento bateu sozinha. Atrás dele." },
+  { "secao": 9, "ofs": 0.3, "texto": "E lá de dentro, uma voz falou. A voz dele mesmo.", "ate": 3.6 },
+  { "secao": 9, "ofs": 3.8, "texto": "Eu avisei pra não abrir.", "legenda": false },
+  { "secao": 10, "ofs": 0.5, "texto": "E agora? Comenta aí. A: o Léo entra no elevador. Ou B: ele volta e bate na própria porta.", "legenda": false }
+ ],
+ "sons": [
+  ["impacto", 0.1],
+  ["vibra", 0.6, 2.4],
+  ["grave", 0, 58],
+  ["impacto", 6.0],
+  ["lamina", 13.2],
+  ["rangido", 17.2],
+  ["tique", 27.2, 32],
+  ["ding", 28.0],
+  ["porta", 33.0],
+  ["impacto", 38.0],
+  ["coracao", 38.5, 46, 80, 110],
+  ["impacto", 46.4],
+  ["toc", 46.4],
+  ["coracao", 47, 57.6, 110, 160],
+  ["susto", 54.6],
+  ["silencio", 57.4, 58.2],
+  ["impacto", 58.3]
+ ]
+}
