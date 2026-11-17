@@ -43,9 +43,8 @@ def colocar(trilha, som, t, ganho=1.0):
         trilha[i:fim] += som[: fim - i] * ganho
 
 
-def main():
-    cfg = json.load(open(sys.argv[1]))
-    saida = sys.argv[2]
+def sintetizar(cfg):
+    """Devolve a trilha (numpy, mono, 44.1 kHz, pico 0.89)."""
     dur = cfg["duracao"]
     n = int(dur * SR)
     t = np.arange(n) / SR
@@ -114,6 +113,22 @@ def main():
             trilha[a - rampa:a] *= np.linspace(1, 0, rampa)
 
     trilha /= max(1e-9, np.max(np.abs(trilha))) / 0.89
+    return trilha
+
+
+def salvar_wav(caminho, sinal):
+    pcm = (np.clip(sinal, -1, 1) * 32767).astype(np.int16)
+    with wave.open(caminho, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(SR)
+        w.writeframes(pcm.tobytes())
+
+
+def main():
+    cfg = json.load(open(sys.argv[1]))
+    saida = sys.argv[2]
+    trilha = sintetizar(cfg)
     pcm = (trilha * 32767).astype(np.int16)
     with wave.open(saida, "wb") as w:
         w.setnchannels(1)

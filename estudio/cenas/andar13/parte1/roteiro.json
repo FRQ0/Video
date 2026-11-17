@@ -1,0 +1,42 @@
+{
+  "voz": "pt_BR-faber-medium",
+  "secoes": [0, 4.5, 9.5, 14.5, 19.5, 25, 31, 37, 43, 48, 53.5, 59, 65, 70],
+  "fim": 79,
+  "falas": [
+    { "secao": 0, "ofs": 0.3, "texto": "Léo achou um bilhete. A letra era a dele mesmo." },
+    { "secao": 1, "ofs": 0.3, "texto": "Ele tinha acabado de se mudar para um edifício antigo." },
+    { "secao": 2, "ofs": 0.3, "texto": "No elevador, os botões pulavam do doze direto para o quatorze." },
+    { "secao": 3, "ofs": 0.3, "texto": "Mas a porta do apartamento dele... tinha o número do andar que não existe." },
+    { "secao": 4, "ofs": 0.3, "texto": "E toda noite, sempre no mesmo horário, o elevador parava bem no andar dele." },
+    { "secao": 5, "ofs": 1.2, "texto": "As portas se abriam... e ninguém saía." },
+    { "secao": 6, "ofs": 0.3, "texto": "Até que, naquela noite, um papel deslizou por baixo da porta." },
+    { "secao": 7, "ofs": 0.6, "texto": "Não deixe ninguém entrar hoje. Assinado: Léo.", "legenda": false },
+    { "secao": 8, "ofs": 0.3, "texto": "A letra era dele. Mas ele nunca tinha escrito aquilo." },
+    { "secao": 9, "ofs": 0.1, "texto": "Então, alguém bateu na porta.", "ate": 1.9 },
+    { "secao": 10, "ofs": 0.3, "texto": "Ele olhou pelo olho mágico. O corredor estava vazio." },
+    { "secao": 11, "ofs": 0.3, "texto": "Aí, o celular vibrou. A mensagem vinha do número dele.", "ate": 3.2 },
+    { "secao": 11, "ofs": 3.4, "texto": "Fica calmo. Eu já estou aí dentro.", "legenda": false },
+    { "secao": 12, "ofs": 0.3, "texto": "Então, ele olhou para trás.", "ate": 2.5 },
+    { "secao": 13, "ofs": 0.5, "texto": "E agora? O que o Léo deve fazer? Comenta aí: A, ou B.", "legenda": false }
+  ],
+  "sons": [
+    ["impacto", 0.1],
+    ["grave", 0, 69],
+    ["impacto", 4.5],
+    ["tique", 19.7, 25],
+    ["ding", 26.2],
+    ["porta", 26.4],
+    ["porta", 29.6],
+    ["papel", 33.2],
+    ["impacto", 37.0],
+    ["coracao", 43, 48.8, 70, 95],
+    ["toc", 50.0],
+    ["toc", 50.6],
+    ["toc", 51.2],
+    ["coracao", 53.5, 68.6, 90, 150],
+    ["vibra", 60.2, 62.6],
+    ["susto", 68.8],
+    ["silencio", 69.4, 70.2],
+    ["impacto", 70.3]
+  ]
+}

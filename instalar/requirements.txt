@@ -1,4 +1,6 @@
 # Ferramentas Python do estúdio (todas gratuitas e de código aberto)
 faster-whisper==1.2.1   # legendas automáticas (MIT)
+av==15.1.0              # decodificador de áudio do faster-whisper (o av 19 quebra a versão 1.2.1)
+numpy                   # trilha sonora e mixagem
 yt-dlp                  # baixar vídeos de referência para estudar (Unlicense); sem versão fixa porque precisa estar sempre atualizado
 piper-tts==1.3.0        # narração em português que roda na CPU, sem placa de vídeo (GPL)

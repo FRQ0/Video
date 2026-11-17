@@ -62,13 +62,15 @@ node render.mjs meu-video --previa                    # prévia rápida (15 fps)
 node render.mjs meu-video --audio ../narracao.mp3     # final com narração
 ```
 
-**Narração e legendas** (use o Python do `.venv`):
+**Narração com voz grave + trilha + cenas sincronizadas** (use o Python do `.venv`):
 ```bash
-python -m piper.download_voices pt_BR-faber-medium              # só na primeira vez
-echo "Esse vídeo inteiro custou zero reais" | python -m piper -m pt_BR-faber-medium -f narracao.wav
-python estudio/ferramentas/legendas.py narracao.wav > estudio/cenas/meu-video/legendas.json
+python -m piper.download_voices pt_BR-faber-medium --download-dir estudio/vozes   # só na primeira vez
+python estudio/ferramentas/narrar.py estudio/cenas/andar13/parte1                  # gera tempos.json e audio.wav
+cd estudio && node render.mjs andar13/parte1 --audio saida/andar13/parte1/audio.wav
 ```
-Na primeira vez, o faster-whisper baixa o modelo de fala (cerca de 500 MB). A voz do Piper tem cerca de 60 MB.
+As falas, as seções e os efeitos sonoros ficam no `roteiro.json` de cada episódio. Se uma fala não cabe na cena, a cena estica sozinha.
+
+> **Dica de pronúncia (voz Faber):** ela tropeça em "tr", "pr" e "abr" (três, trinta, próprio, abra). Escreva números por extenso só quando necessário (o relógio na tela já mostra "03:33") e confira com `python estudio/ferramentas/legendas.py audio.wav`: se o whisper entende, o público entende.
 
 **Trilha de suspense sintetizada** (sem música de ninguém, então sem risco de direitos autorais):
 ```bash
