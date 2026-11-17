@@ -1,1 +1,88 @@
-{"secoes": [0, 6, 10, 16, 21, 27, 32, 38, 46, 51, 58], "fim": 68, "novas": [0, 6, 10, 16, 21, 27, 32, 38, 46, 51, 58, 68], "duracao": 68, "falas": [{"t": 0.5, "fim": 4.0, "texto": "Na parte um, o Léo recebeu uma mensagem do próprio número: eu já estou aí dentro."}, {"t": 6.3, "fim": 9.8, "texto": "Vocês escolheram: abrir a porta."}, {"t": 10.3, "fim": 13.8, "texto": "Mas antes, ele foi até a cozinha... e pegou a maior faca da gaveta."}, {"t": 16.3, "fim": 19.8, "texto": "Ele girou a maçaneta. Bem devagar."}, {"t": 21.3, "fim": 24.8, "texto": "O corredor estava vazio. A lâmpada piscava."}, {"t": 27.6, "fim": 31.1, "texto": "Até que o elevador apitou. Três e trinta e três."}, {"t": 32.8, "fim": 36.3, "texto": "As portas se abriram... e dessa vez, tinha uma coisa lá dentro."}, {"t": 38.3, "fim": 41.8, "texto": "Um calendário. Com todos os dias do último ano riscados de vermelho."}, {"t": 42.2, "fim": 45.7, "texto": "E o dia de hoje estava circulado. Com duas palavras escritas do lado: de novo."}, {"t": 46.2, "fim": 49.7, "texto": "Foi quando a porta do apartamento bateu sozinha. Atrás dele."}, {"t": 51.3, "fim": 54.8, "texto": "E lá de dentro, uma voz falou. A voz dele mesmo."}]}
+{
+ "secoes": [
+  0,
+  6,
+  10,
+  16,
+  21,
+  27,
+  32,
+  38,
+  46,
+  51,
+  58
+ ],
+ "fim": 68,
+ "novas": [
+  0.0,
+  8.645,
+  13.344,
+  20.024,
+  25.024,
+  31.024,
+  37.158,
+  43.29,
+  58.61,
+  64.231,
+  74.717,
+  85.053
+ ],
+ "duracao": 85.053,
+ "falas": [
+  {
+   "t": 0.72,
+   "fim": 8.069,
+   "texto": "Na parte um, o Léo recebeu uma mensagem do próprio número: eu já estou aí dentro."
+  },
+  {
+   "t": 8.997,
+   "fim": 12.874,
+   "texto": "Vocês escolheram: abrir a porta."
+  },
+  {
+   "t": 13.678,
+   "fim": 19.579,
+   "texto": "Mas antes, ele foi até a cozinha... e pegou a maior faca da gaveta."
+  },
+  {
+   "t": 20.324,
+   "fim": 24.359,
+   "texto": "Ele girou a maçaneta. Bem devagar."
+  },
+  {
+   "t": 25.324,
+   "fim": 30.319,
+   "texto": "O corredor estava vazio. A lâmpada piscava."
+  },
+  {
+   "t": 31.76,
+   "fim": 36.667,
+   "texto": "Até que o elevador apitou. Três e trinta e três."
+  },
+  {
+   "t": 37.976,
+   "fim": 42.881,
+   "texto": "As portas se abriram... e dessa vez, tinha uma coisa lá dentro."
+  },
+  {
+   "t": 43.864,
+   "fim": 49.14,
+   "texto": "Um calendário. Com todos os dias do último ano riscados de vermelho."
+  },
+  {
+   "t": 51.333,
+   "fim": 57.844,
+   "texto": "E o dia de hoje estava circulado. Com duas palavras escritas do lado: de novo."
+  },
+  {
+   "t": 58.835,
+   "fim": 63.781,
+   "texto": "Foi quando a porta do apartamento bateu sozinha. Atrás dele."
+  },
+  {
+   "t": 64.68,
+   "fim": 69.624,
+   "texto": "E lá de dentro, uma voz falou. A voz dele mesmo."
+  }
+ ]
+}
