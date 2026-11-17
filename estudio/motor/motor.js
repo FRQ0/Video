@@ -21,7 +21,7 @@ export function aleatorio(semente = 1) {
   };
 }
 
-export function criarMundo({ fundo = '#8fc7ee' } = {}) {
+export function criarMundo({ fundo = '#8fc7ee', noite = false } = {}) {
   const canvas = document.createElement('canvas');
   document.getElementById('palco').appendChild(canvas);
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDrawingBuffer: true });
@@ -38,8 +38,9 @@ export function criarMundo({ fundo = '#8fc7ee' } = {}) {
   camera.position.set(0, 4, 14);
   const alvo = new THREE.Vector3(0, 1.5, 0);
 
-  cena.add(new THREE.HemisphereLight('#ffffff', '#6b7a99', 1.6));
-  const sol = new THREE.DirectionalLight('#ffffff', 2.2);
+  const ceu = new THREE.HemisphereLight(noite ? '#7d8cc4' : '#ffffff', noite ? '#1a1a2e' : '#6b7a99', noite ? 0.55 : 1.6);
+  cena.add(ceu);
+  const sol = new THREE.DirectionalLight(noite ? '#9fb3ff' : '#ffffff', noite ? 0.7 : 2.2);
   sol.position.set(6, 12, 8);
   sol.castShadow = true;
   sol.shadow.mapSize.set(2048, 2048);
@@ -49,11 +50,12 @@ export function criarMundo({ fundo = '#8fc7ee' } = {}) {
   const tl = gsap.timeline({ paused: true });
 
   function desenhar() {
+    camera.updateProjectionMatrix();
     camera.lookAt(alvo);
     renderer.render(cena, camera);
   }
 
-  return { THREE, renderer, cena, camera, alvo, tl, desenhar };
+  return { THREE, renderer, cena, camera, alvo, tl, desenhar, ceu, sol };
 }
 
 const mat = (cor) => new THREE.MeshLambertMaterial({ color: cor, flatShading: true });
@@ -64,13 +66,13 @@ function sombra(obj) {
 }
 
 // Boneco low-poly no estilo "explicativo".
-export function boneco(cor = '#7b4fc9') {
+export function boneco(cor = '#7b4fc9', { pele = '#f2c29b', cabeloCor = '#2b2b2b' } = {}) {
   const g = new THREE.Group();
   const corpo = new THREE.Mesh(new THREE.CapsuleGeometry(0.38, 0.55, 4, 10), mat(cor));
   corpo.position.y = 1.0;
-  const cabeca = new THREE.Mesh(new THREE.SphereGeometry(0.42, 16, 12), mat('#f2c29b'));
+  const cabeca = new THREE.Mesh(new THREE.SphereGeometry(0.42, 16, 12), mat(pele));
   cabeca.position.y = 1.85;
-  const cabelo = new THREE.Mesh(new THREE.SphereGeometry(0.44, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2.3), mat('#2b2b2b'));
+  const cabelo = new THREE.Mesh(new THREE.SphereGeometry(0.44, 16, 8, 0, Math.PI * 2, 0, Math.PI / 2.3), mat(cabeloCor));
   cabelo.position.y = 1.9;
   for (const x of [-0.14, 0.14]) {
     const olho = new THREE.Mesh(new THREE.SphereGeometry(0.05, 8, 6), mat('#111111'));
@@ -192,6 +194,62 @@ export function legendas(tl, frases) {
 export function publicar({ tl, desenhar, duracao }) {
   window.__duracao = duracao;
   window.__seek = (t) => { tl.seek(t, false); desenhar(); };
+  tl.progress(1, true).progress(0, true); // aplica todos os estados iniciais
   window.__seek(0);
   window.__pronto = true;
+}
+
+// ---------- Efeitos de suspense ----------
+
+// Mostra um bloco HTML (bilhete, celular, relógio, cartão de escolha…) entre ini e fim.
+export function painel(tl, html, ini, fim, classe = '') {
+  const el = document.createElement('div');
+  el.className = 'painel ' + classe;
+  el.innerHTML = html;
+  document.getElementById('camada').appendChild(el);
+  tl.set(el, { autoAlpha: 0, scale: 0.85, xPercent: -50, yPercent: -50 }, 0);
+  tl.to(el, { autoAlpha: 1, scale: 1, duration: 0.4, ease: 'back.out(1.8)' }, ini);
+  if (fim != null) tl.to(el, { autoAlpha: 0, duration: 0.25 }, fim - 0.25);
+  return el;
+}
+
+// Clarão de tela inteira (ex.: susto). cor: '#fff', '#ff0000'…
+export function flash(tl, t, cor = '#ffffff', duracao = 0.5) {
+  const el = document.createElement('div');
+  el.className = 'tela-cheia';
+  el.style.background = cor;
+  document.getElementById('camada').appendChild(el);
+  tl.set(el, { autoAlpha: 0 }, 0);
+  tl.set(el, { autoAlpha: 0.85 }, t);
+  tl.to(el, { autoAlpha: 0, duration: duracao, ease: 'power2.out' }, t + 0.03);
+}
+
+// Escurece/clareia a tela inteira (transições entre cenas).
+export function escuro(tl, t, ate = 1, duracao = 0.4) {
+  let el = document.getElementById('escuro');
+  if (!el) {
+    el = document.createElement('div');
+    el.id = 'escuro'; el.className = 'tela-cheia'; el.style.background = '#000';
+    document.getElementById('camada').prepend(el);
+    tl.set(el, { autoAlpha: 0 }, 0);
+  }
+  tl.to(el, { autoAlpha: ate, duration: duracao, ease: 'none' }, t);
+}
+
+// Câmera tremendo (batidas, sustos).
+export function tremer(tl, camera, t, duracao = 0.4, forca = 0.15, rnd = aleatorio(7)) {
+  const passos = Math.round(duracao / 0.04);
+  for (let i = 0; i < passos; i++) {
+    tl.to(camera.position, { x: `+=${(rnd() - 0.5) * forca}`, y: `+=${(rnd() - 0.5) * forca}`, duration: 0.02, yoyo: true, repeat: 1, ease: 'none' }, t + i * 0.04);
+  }
+}
+
+// Luz piscando (lâmpada com defeito).
+export function piscar(tl, luz, ini, fim, rnd = aleatorio(3), ligada = luz.intensity) {
+  let t = ini;
+  while (t < fim) {
+    tl.set(luz, { intensity: rnd() < 0.35 ? ligada * 0.05 : ligada }, t);
+    t += 0.05 + rnd() * 0.25;
+  }
+  tl.set(luz, { intensity: ligada }, fim);
 }

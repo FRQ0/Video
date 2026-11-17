@@ -70,6 +70,18 @@ python estudio/ferramentas/legendas.py narracao.wav > estudio/cenas/meu-video/le
 ```
 Na primeira vez, o faster-whisper baixa o modelo de fala (cerca de 500 MB). A voz do Piper tem cerca de 60 MB.
 
+**Trilha de suspense sintetizada** (sem música de ninguém, então sem risco de direitos autorais):
+```bash
+python estudio/ferramentas/trilha_suspense.py estudio/cenas/andar13/parte1/sons.json trilha.wav
+```
+
+## Saga "O Andar 13"
+
+É uma minissérie de terror em 5 partes, em que os seguidores escolhem o próximo passo nos comentários.
+- História e regras: [`estudio/cenas/andar13/SAGA.md`](estudio/cenas/andar13/SAGA.md)
+- Texto para postar: [`estudio/cenas/andar13/POSTAGEM.md`](estudio/cenas/andar13/POSTAGEM.md)
+- Parte 1 pronta: [`exemplos/O-Andar-13-Parte-1.mp4`](exemplos/O-Andar-13-Parte-1.mp4)
+
 ## Custo real
 
 - **R$ 0:** todas as ferramentas acima.
