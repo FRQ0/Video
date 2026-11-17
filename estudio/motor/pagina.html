@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<script type="importmap">
+{ "imports": {
+  "three": "/node_modules/three/build/three.module.js",
+  "gsap": "/node_modules/gsap/index.js",
+  "motor": "/motor/motor.js"
+} }
+</script>
+<style>
+  @font-face { font-family: Montserrat; font-weight: 900; src: url(/node_modules/@fontsource/montserrat/files/montserrat-latin-900-normal.woff2); }
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; background: #000; }
+  #palco, #camada { position: absolute; inset: 0; }
+  #palco canvas { width: 1080px; height: 1920px; display: block; }
+  .titulo {
+    position: absolute; top: 150px; left: 0; right: 0; text-align: center;
+    font: 900 96px/1.05 Montserrat, sans-serif; color: #fff; text-transform: uppercase;
+    -webkit-text-stroke: 10px #111; paint-order: stroke fill;
+    text-shadow: 0 8px 0 rgba(0,0,0,.35);
+  }
+  .vermelho { color: #ff3b3b; } .amarelo { color: #ffc61a; } .verde { color: #4be06b; }
+  .legenda {
+    position: absolute; bottom: 330px; left: 40px; right: 40px; text-align: center;
+    font: 900 72px/1.1 Montserrat, sans-serif; color: #fff; text-transform: uppercase;
+    -webkit-text-stroke: 9px #111; paint-order: stroke fill;
+  }
+  .legenda .ativa { color: #ffc61a; }
+</style>
+</head>
+<body>
+<div id="palco"></div>
+<div id="camada"></div>
+<script type="module">
+  await document.fonts.load('900 96px Montserrat');
+  const cena = new URLSearchParams(location.search).get('cena');
+  await import(`/cenas/${cena}/cena.js`);
+</script>
+</body>
+</html>
