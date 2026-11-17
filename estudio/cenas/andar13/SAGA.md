@@ -9,7 +9,7 @@
 
 **A verdade (revelada só na Parte 5):** o 13º andar é um laço no tempo. Léo está preso nele há um ano. Toda noite ele recomeça sem lembrar de nada. O bilhete e as mensagens vêm do Léo da noite anterior, tentando avisar. Quem bate na porta é sempre a irmã dele, **Bia**, que nunca parou de procurá-lo. Só que o Léo de cada noite tem medo e não abre.
 
-**Final (reviravolta):** quando Léo finalmente entende tudo, já é 03:32. Ele escreve um bilhete para a próxima noite e passa por baixo da porta. Na última cena, a câmera revela que o bilhete diz **"NÃO DEIXE NINGUÉM ENTRAR HOJE"**, exatamente o bilhete da Parte 1. Fecha o laço e deixa no ar se ele foi o herói ou o motivo de tudo.
+**Final (reviravolta):** quando Léo finalmente entende tudo, já é 03:32. Ele escreve um bilhete para a próxima noite e passa por baixo da porta. Na última cena, a câmera revela que o bilhete diz **"NÃO ABRA A PORTA PRA NINGUÉM HOJE"**, exatamente o bilhete da Parte 1. Fecha o laço e deixa no ar se ele foi o herói ou o motivo de tudo.
 
 ## Arco previsto (as escolhas mudam o caminho, não o destino)
 1. **O bilhete:** a mensagem "Eu já estou aí dentro". Escolha: **A) abrir a porta** ou **B) procurar dentro de casa**.

@@ -156,7 +156,7 @@ export function montarApto(cena) {
   const textoBilhete = texturaCanvas(256, 192, (x, w, h) => {
     x.fillStyle = '#f3ead2'; x.fillRect(0, 0, w, h);
     x.fillStyle = '#222'; x.font = '900 26px Montserrat'; x.textAlign = 'center';
-    ['NÃO DEIXE', 'NINGUÉM', 'ENTRAR HOJE'].forEach((l, i) => x.fillText(l, w / 2, 50 + i * 36));
+    ['NÃO ABRA', 'A PORTA', 'PRA NINGUÉM'].forEach((l, i) => x.fillText(l, w / 2, 50 + i * 36));
     x.fillStyle = '#a11'; x.fillText('— LÉO', w / 2 + 50, 170);
   });
   const bilhete = new THREE.Mesh(new THREE.PlaneGeometry(0.5, 0.375), new THREE.MeshLambertMaterial({ map: textoBilhete }));

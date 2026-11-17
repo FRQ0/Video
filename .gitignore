@@ -4,3 +4,5 @@ estudio/saida/
 __pycache__/
 *.pyc
 estudio/vozes/
+exemplos/vozes/minha-*
+exemplos/*minha-voz*

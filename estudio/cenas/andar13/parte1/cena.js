@@ -87,7 +87,7 @@ T('Até que', 'naquela noite…', 'amarelo', 31.1, 37);
 
 // ---- O que estava escrito ----
 escuro(tl, m(37), 0.8, 0.2);
-painel(tl, 'Não deixe ninguém entrar hoje.<div class="assinatura">— Léo</div>', m(37.2), m(43), 'bilhete');
+painel(tl, 'Não abra a porta pra ninguém hoje.<div class="assinatura">— Léo</div>', m(37.2), m(43), 'bilhete');
 flash(tl, m(37), '#ffffff', 0.35);
 escuro(tl, m(43), 0, 0.2);
 
@@ -124,7 +124,7 @@ T('No olho mágico', 'ninguém', 'vermelho', 53.6, 59);
 
 // ---- A mensagem do próprio número ----
 escuro(tl, m(59), 0.9, 0.2);
-const cel = painel(tl, '<div class="hora">03:34</div><div class="msg"><div class="de">MEU NÚMERO • agora</div>Fica calmo.<br>Eu já estou aí dentro.</div>', m(59.4), m(65), 'celular');
+const cel = painel(tl, '<div class="hora">03:34</div><div class="msg"><div class="de">MEU NÚMERO • agora</div>Não abre.<br>Eu já estou aí dentro.</div>', m(59.4), m(65), 'celular');
 tl.to(cel, { x: '+=14', duration: 0.03, yoyo: true, repeat: 15, ease: 'none' }, m(60.2));
 escuro(tl, m(65), 0, 0.2);
 

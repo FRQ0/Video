@@ -21,78 +21,78 @@
   4.5,
   9.5,
   14.5,
-  19.5,
-  25.0,
-  31.0,
-  37.0,
-  43.0,
-  48.0,
-  53.592,
-  59.092,
-  66.788,
-  71.788,
-  80.788
+  19.742,
+  26.103,
+  32.103,
+  38.103,
+  44.103,
+  50.079,
+  56.808,
+  62.308,
+  71.656,
+  76.656,
+  85.656
  ],
- "duracao": 80.788,
+ "duracao": 85.656,
  "falas": [
   {
    "t": 0.3,
-   "fim": 3.361,
-   "texto": "Léo achou um bilhete. A letra era a dele mesmo."
+   "fim": 3.929,
+   "texto": "Léo achou um bilhete escrito com a própria letra."
   },
   {
    "t": 4.8,
-   "fim": 7.666,
-   "texto": "Ele tinha acabado de se mudar para um edifício antigo."
+   "fim": 8.181,
+   "texto": "Ele tinha acabado de se mudar para um prédio antigo."
   },
   {
    "t": 9.8,
-   "fim": 13.409,
+   "fim": 13.76,
    "texto": "No elevador, os botões pulavam do doze direto para o quatorze."
   },
   {
-   "t": 14.8,
-   "fim": 18.452,
-   "texto": "Mas a porta do apartamento dele... tinha o número do andar que não existe."
+   "t": 14.815,
+   "fim": 19.322,
+   "texto": "Mas a porta do apartamento dele dizia: treze zero um."
   },
   {
-   "t": 19.8,
-   "fim": 23.929,
-   "texto": "E toda noite, sempre no mesmo horário, o elevador parava bem no andar dele."
+   "t": 20.089,
+   "fim": 25.641,
+   "texto": "E toda noite, às três e trinta e três, o elevador parava no andar dele."
   },
   {
-   "t": 26.2,
-   "fim": 28.238,
-   "texto": "As portas se abriam... e ninguém saía."
+   "t": 27.303,
+   "fim": 29.795,
+   "texto": "As portas se abriam… e ninguém saía."
   },
   {
-   "t": 31.3,
-   "fim": 34.897,
+   "t": 32.403,
+   "fim": 36.239,
    "texto": "Até que, naquela noite, um papel deslizou por baixo da porta."
   },
   {
-   "t": 43.3,
-   "fim": 46.336,
+   "t": 44.462,
+   "fim": 49.601,
    "texto": "A letra era dele. Mas ele nunca tinha escrito aquilo."
   },
   {
-   "t": 48.102,
-   "fim": 49.932,
+   "t": 50.201,
+   "fim": 52.403,
    "texto": "Então, alguém bateu na porta."
   },
   {
-   "t": 53.892,
-   "fim": 57.366,
+   "t": 57.108,
+   "fim": 61.005,
    "texto": "Ele olhou pelo olho mágico. O corredor estava vazio."
   },
   {
-   "t": 59.477,
-   "fim": 63.197,
-   "texto": "Aí, o celular vibrou. A mensagem vinha do número dele."
+   "t": 62.775,
+   "fim": 67.293,
+   "texto": "Aí, o celular vibrou. A mensagem vinha do número dele mesmo."
   },
   {
-   "t": 67.088,
-   "fim": 68.867,
+   "t": 71.956,
+   "fim": 73.517,
    "texto": "Então, ele olhou para trás."
   }
  ]
